@@ -1,5 +1,4 @@
 //function permettant de liker ou de disliker un élement 
-
 function likeMedia(elLikes, media, medias) {
     const likePhotographer = document.querySelector(".nb-like")
     let mediaLike = false;
@@ -31,4 +30,13 @@ function likeMedia(elLikes, media, medias) {
             likePhotographer.textContent = totalLike
         }
     })
+}
+
+function totalLike(elHtml, medias) { // calcul le nombre total de like
+    let totalLike = 0;
+    medias.forEach((media) => {
+        totalLike = media.likes + totalLike
+    })
+    elHtml.textContent = totalLike
+    return totalLike
 }

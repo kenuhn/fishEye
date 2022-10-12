@@ -1,4 +1,3 @@
-
 // Fonction permettant de naviguer entre les médias d'une même page 
 
 function navigateMedia(tabMedia, mediaSelectionne) {
@@ -21,7 +20,6 @@ function navigateMedia(tabMedia, mediaSelectionne) {
         } else { // Sinon indexmedia reviens au première index du tableau donc Zero 
             indexMedia = 0
             newMedia = tabMedia[indexMedia]
-            //repetition de code à corriger ultérieurement‡
             verifContenueModalmedia (newMedia)
             console.log(indexMedia)
             console.log(newMedia)

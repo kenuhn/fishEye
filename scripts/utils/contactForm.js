@@ -12,7 +12,14 @@ function closeModal() {
     modal.setAttribute('aria-hidden', 'true')
 }
 
-function logiqueModal() {
+async function setNameContact(photographer){
+    const titreModal = document.querySelector('.titre-modal')
+    titreModal.textContent = 'CONTACTEZ-MOI ' + photographer.name;
+}
+
+
+function logiqueModalContact(photographer) {
+    setNameContact(photographer)
     /*Element du formulaire séléctionné*/
     const prenom = document.querySelector('.prenom-input');
     const nom = document.querySelector('.nom-input');

@@ -1,9 +1,3 @@
-async function logiqueGalerie() {
-    setNewGalerieTitre()
-    setNewGalerieLike()
-}
-
-logiqueGalerie()
 //affiche la galerie. Cette fonction permet deux choses d'afficher la galerie permet aussi de la supprimer
 async function afficheGalerie(medias) {
     const data = await getUserData()
@@ -59,61 +53,5 @@ async function afficheGalerie(medias) {
     const cards = document.querySelectorAll(".card-container")
     removeCards(cards)
     return ({ img: [...img], video: [...video] })
-
-}
-
-//Fonction affichant la galerie trier par l'ordre alphabétique des titres 
-function setNewGalerieTitre() {
-    const btnTrie = document.querySelector(".btn-trie-titre")
-    btnTrie.addEventListener("click", async (e) => {
-        const newMedia = await trieGalerieTitre()
-        modalPhoto(newMedia)
-    })
-}
-
-// Au clique supprimer la liste node comprenant toute les cards dans l'element html galerie 
-function removeCards(cards) {
-    const btnTrie = document.querySelectorAll(".btn")
-    btnTrie.forEach((btn) => {
-        btn.addEventListener("click", async (e) => {
-            for (i of cards) {
-                i.remove()
-            }
-            console.log(i)
-            console.log("a l'interieur fonction ==>", e)
-        })
-    })
-}
-
-
-//Fonction qui trie la galerie dans la galerie dans l'ordre alphabétique avec la méthode en sort 
-async function trieGalerieTitre() {
-    const data = await getUserData()
-    const newMedias = data.media
-    newMedias.sort((a, b) => {
-        aLow = a.title.toLowerCase()
-        bLow = b.title.toLowerCase()
-        if (aLow < bLow) { return -1 }
-        if (aLow > bLow) { return 1 }
-        if (aLow === bLow) { return 0 }
-    })
-    return newMedias
-}
-//Fonction qui trie la galerie en fonction du nombre de like 
-async function trieGalerieLike() {
-    const data = await getUserData()
-    const newMedias = data.media
-    //trie des medias par like 
-    newMedias.sort((a, b) => b.likes - a.likes)
-    return newMedias
-}
-
-//Fonction affichant la galerie trier par l'ordre alphabétique des titres 
-async function setNewGalerieLike() {
-    const btnTrie = document.querySelector(".btn-trie-like")
-    btnTrie.addEventListener("click", async () => {
-        const newMedia = await trieGalerieLike()
-        modalPhoto(newMedia)
-    })
 
 }
