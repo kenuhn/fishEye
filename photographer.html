@@ -1,48 +1,105 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" alt="logo"/>
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <article class="photograph-info"></article>
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-        
-      </div>
-      <article class="encoche">
-        <div class="photographer-like">
-          <p class="nb-like"><img src="" alt="coeur" class="img-coeur"></p>
-        </div>
-        <p class="tarif-journalier"></p>
-      </article>
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="close" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <div class="galerie">
 
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/2161a8dba9.js" crossorigin="anonymous"></script>
+  <title>Fisheye - photographe </title>
+</head>
+
+<body>
+  <header>
+    <img src="assets/images/logo.png" class="logo" alt="logo" />
+  </header>
+  <main id="main">
+    <div class="photograph-header">
+      <article class="photograph-info"></article>
+      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
     </div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-  </body>
+
+    <!--bouton pour trier -->
+
+    <article class="trie">
+      <p class="texte-trier">trier par : </p>
+      <ul class="btn-container">
+        <li  class="btn-container-trie" onclick="displayBtn()">popularité&emsp;
+          <i class="fa fa-solid fa-angle-up" id="arrow-up"></i>
+          <i class="fa fa-solid fa-angle-down" id="arrow-down"></i>
+        </li>
+        <hr noshade="noshade">
+        <li class="btn btn-trie-titre">titre
+        </li>
+        <hr noshade="noshade">
+        <li class="btn btn-trie-like">popularité </li>
+      </ul>
+
+    </article>
+
+    <!-- Encoche contenant le prix et les likes-->
+    <article class="encoche">
+      <div class="photographer-like">
+        <p class="nb-like"></p>
+        <i class="fa fa-solid fa-heart img-coeur"></i>
+      </div>
+      <p class="tarif-journalier"></p>
+    </article>
+  </main>
+
+  <!--Modal contenant le media ainsi que le tire et les fleches de direction -->
+  <article class="modal-media" role=dialog  aria-describedby="modalMedia">
+    <img src="assets/icons/close-red.svg" onclick="closeModalMedia()" alt="close" class="close-modal-media" />
+    <img src="" alt="" class="img-modal-media">
+    <video src="" alt="" class="video-modal-media"></video>
+    <h3 class="titre-modal-media"></h3>
+    <p class="nb-like-modal-media"></p>
+    <i class="fa fa-solid fa-heart img-coeur-modal"></i>
+    <i class="fa fa-sharp fa-solid fa-chevron-left fleche-gauche"></i>
+    <i class="fa fa-sharp fa-solid fa-chevron-right fleche-droite"></i>
+  </article>
+
+  <!--Modal de contact  -->
+  <article id="contact_modal">
+    <div class="modal" role=dialog  aria-describedby="modalMedia">
+      <header>
+        <h2 class="titre-modal"></h2>
+        <img src="assets/icons/close.svg" onclick="closeModal()" alt="close" class="close-modal-contact" />
+      </header>
+      <form class="form-modal">
+        <div>
+          <label>Prénom</label>
+          <input class="prenom-input" />
+          <p class="prenom-error"></p>
+          <label>nom</label>
+          <input class="nom-input" />
+          <p class="nom-error"></p>
+          <label>email</label>
+          <input class="email-input" />
+          <p class="email-error"></p>
+          <label>texte</label>
+          <input class="text-input grand-label" />
+          <p class="text-error"></p>
+        </div>
+        <button class="contact_button">Envoyer</button>
+      </form>
+    </article>
+  </div>
+
+  <!-- Galeie de photos 
+  -->
+  <div class="galerie">
+
+  </div>
+  <script src="/scripts/pages/photographer.js"></script>
+  <script src="scripts/factories/afficheGalerie.js"></script>
+  <script src="/scripts/factories/contactForm.js"></script>
+  <script src="scripts/factories/likeMedia.js"></script>
+  <script src="scripts/factories/navigationModal.js"></script>
+  <script src="scripts/factories/afficheHeader.js"></script>
+  <script src="scripts/factories/menuDeroulantTrie.js"></script>
+  <script src="/scripts/utils/contactForm.js"></script>
+</body>
+
 </html>

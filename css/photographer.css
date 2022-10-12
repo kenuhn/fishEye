@@ -4,6 +4,7 @@ h2{
     margin-bottom: 10px;
 }
 h3{
+   display: inline-block;
    color: #901C1C;
    margin: 0px;
 }
@@ -34,22 +35,70 @@ h3{
     align-items: flex-start ;
     margin-right: 0px;
 }
+
+/*Menu deroulant contenant les boutons permettant de trier les éléments par popularité ou par ordre alphabétique*/
+.trie{
+    display: flex;
+    position: absolute;
+    margin-left: 100px;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: start;
+    width: 300px;
+    z-index: 110;
+}
+.btn-container-trie, .btn-trie-titre, .btn-trie-like{
+    list-style: none;
+    color: white;
+    background-color: #901C1C;
+    width: 110px;
+    height: 30px;
+    padding: 7px 10px 0px 10px;
+    z-index: 100;
+    
+}
+.btn-trie-titre, .btn-trie-like{
+    display: none;
+    margin-top: -2px;
+}
+.btn-container-trie{
+    border-radius: 3px 3px 3px 3px;
+}
+.btn-trie-like{
+    border-radius: 0px 0px 3px 3px;
+}
+#arrow-up{
+    display: none;
+    color: white;
+}
+hr{
+    position: relative;
+    bottom: 0px;
+    margin: 0px 0px 0px 10px;
+    width: 100px;
+    color: white;
+    text-align: center;
+    background-color: white;
+    border-color: white;
+   
+
+}
+/*galerie photos*/
 .galerie{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: space-between;
-    margin: 0 100px;
+    margin: 30px 100px;
 }
 
 .card-container{
-    border: solid;
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-items: flex-start;
     margin: 50px 0px 50px 0px;
-    width: 310px;
+    width: 330px;
 }
 .photos-galerie{
     width: 310px;
@@ -57,9 +106,33 @@ h3{
     margin-bottom: 10px;
     
 }
+.video-galerie{
+    width: 310px;
+    height:310px;
+    margin-bottom: 10px;
+    
+}
 
+.block-prix-like{
+    color: #901C1C;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 92%;
+}
 
-
+.titre-photo-galerie{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+.likes-medias{
+    margin: 0;
+    margin-left: 5px;
+    display: inline-block;
+    white-space: nowrap;
+}
 
 .contact_button {
     font-size: 20px;
@@ -74,6 +147,8 @@ h3{
     cursor: pointer;
 }
 
+/* Encoche contenant le nombre total de like */
+
 .encoche{
     width: 300px;
     height: 50px;
@@ -86,14 +161,25 @@ h3{
     align-items: center;
     background-color: #DB8876;
     border-radius: 5px  5px 0px 0px;
-    
-
+}
+.photographer-like{
+    width: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.modal {
+/*Formulaire permettant d'échanger avec le photographe*/
+.modal{
+    position: fixed;
+    top: 100px;
+    bottom: 100px;
+    right: 100px;
+    left: 100px;
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 400px;
+    height: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,15 +192,17 @@ h3{
     justify-content: space-between;
     width: 100%;
 }
+.titre-modal{
+    color: black;
+    padding: 0;
+    font-size: 35px;
+    font-weight: 100;
+    
+    
+}
 
 .modal header img {
     cursor: pointer;
-}
-
-.modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
-    text-align: center;
 }
 
 form {
@@ -126,7 +214,7 @@ form {
 
 form label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 25px;
 }
 
 form div {
@@ -139,7 +227,102 @@ form div {
 
 form input {
     width: 100%;
-    height: 68px;
+    height: 38px;
     border: none;
     border-radius: 5px;
+}
+
+.grand-label{
+    height: 114px;
+}
+
+.prenom-error, .nom-error, .email-error, .text-error{
+    display: none; 
+    color: red;
+    font-size: 10px;
+}
+
+/*modal ouvrant en grand les images et permettant de naviguer avec le clavier */
+
+.modal-media{
+    position: fixed;
+    left: 50%;
+    margin-left: -350px;
+    bottom: 50%;
+    margin-bottom: -275px;
+    grid-template-columns: 0.4fr 2.2fr 0.4fr; 
+    grid-template-rows: 0.8fr 2.2fr 0.2fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      ". . ."
+      ". . ."
+      ". . ."; 
+    width: 700px;
+    height: 550px;
+    display: none;
+}
+
+.img-modal-media, .video-modal-media{
+    display: none;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    align-self: start;
+    justify-self: center;
+    width: 500px;
+    height: 500px;
+}
+
+.close-modal-media{
+    grid-column: 3/4;
+    grid-row: 2/3;
+    align-self: start;
+    justify-self: center;
+    
+}
+
+.titre-modal-media{
+    margin-left: 5px;
+    color: #901C1C;
+    grid-column: 2/3;
+    grid-row: 3/4;
+    align-self: center;
+    justify-self: start;
+
+}
+.nb-like-modal-media{
+    margin-right: 30px;
+    color: #901C1C;
+    grid-column: 2/3;
+    grid-row: 3/4;
+    align-self: center;
+    justify-self: end;
+    font-size: large;
+    font-weight: bolder;
+}
+.img-coeur-modal{
+    margin-right: 5px;
+    color: #901C1C;
+    grid-column: 2/3;
+    grid-row: 3/4;
+    align-self: center;
+    justify-self: end;
+    font-size: large;
+    font-weight: bolder;
+}
+
+.fleche-gauche{
+    color: #901C1C;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    align-self: center;
+    justify-self: center;
+    font-size: 30px;
+}
+.fleche-droite{
+    color: #901C1C;
+    grid-column: 3/4;
+    grid-row: 2/3;
+    align-self: center;
+    justify-self: center;
+    font-size: 30px;
 }
