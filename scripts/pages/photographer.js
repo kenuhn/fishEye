@@ -1,7 +1,7 @@
 //Mettre le code JavaScript lié à la page photographer.html
 // Fonction qui receptionne la data d'un utilisateur en comparant l'id de l'url et les id present dans le document json
 async function getUserData() {
-    const requette = await fetch('http://127.0.0.1:5500/data/photographers.json');
+    const requette = await fetch('http://127.0.0.1:5501/data/photographers.json');
     const doc = await requette.json();
     let params = new URLSearchParams(window.location.search);
     const idLocation = params.get('id');

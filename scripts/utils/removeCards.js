@@ -2,7 +2,7 @@
 function removeCards(cards) {
     const btnTrie = document.querySelectorAll(".btn")
     btnTrie.forEach((btn) => {
-        btn.addEventListener("click", async (e) => {
+        btn.addEventListener("click", (e) => {
             for (i of cards) {
                 i.remove()
             }

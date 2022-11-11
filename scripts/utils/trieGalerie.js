@@ -3,8 +3,8 @@ async function trieGalerieTitre() {
     const data = await getUserData()
     const newMedias = data.media
     newMedias.sort((a, b) => {
-        aLow = a.title.toLowerCase()
-        bLow = b.title.toLowerCase()
+       let aLow = a.title.toLowerCase()
+        let bLow = b.title.toLowerCase()
         if (aLow < bLow) { return -1 }
         if (aLow > bLow) { return 1 }
         if (aLow === bLow) { return 0 }

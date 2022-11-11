@@ -1,6 +1,6 @@
     async function getPhotographers() {
         // Penser à remplacer par les données récupérées dans le json
-        const url = 'http://127.0.0.1:5500/data/photographers.json'
+        const url = 'http://127.0.0.1:5501/data/photographers.json'
         const requette =  await fetch(url, {method: 'GET'})
             try{
                const doc =  await requette.json()

@@ -73,7 +73,7 @@ function logiqueModalContact(photographer) {
         } else {
             emailValue = false;
             errorEmail.style.display = "block";
-            errorEmail.textContent = "il y a une erreur dans la saisie de votre nom";
+            errorEmail.textContent = "il y a une erreur dans la saisie de votre email";
         }
     }
 

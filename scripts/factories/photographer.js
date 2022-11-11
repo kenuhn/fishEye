@@ -3,7 +3,7 @@ function photographerFactory(data) {
 
     const picture = `assets/photographers/Sample-Photos/Photographers-ID-Photos/${portrait}`;
    
-    let url = new URL('http://127.0.0.1:5500/photographer.html')
+    let url = new URL('http://127.0.0.1:5501/photographer.html')
     
 
     function getUserCardDOM() {
